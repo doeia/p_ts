@@ -1,5 +1,5 @@
 name: Test Project
-on: push
+on: push #trigger
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -15,6 +15,7 @@ jobs:
       - name: Run tests
         run: npm test
   deploy:
+    needs: test # run after test job
     runs-on: ubuntu-latest
     steps:
       - name: Get code
